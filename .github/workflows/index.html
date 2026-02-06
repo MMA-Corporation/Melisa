@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Keylla Meriyyam Nurul Haq</title>
+    <!-- Font Import -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold-primary: #D4AF37;
+            --gold-dark: #B8860B;
+            --gold-light: #F9E29C;
+            --dark-bg: #121212;
+            --dark-surface: #1E1E1E;
+            --text-main: #FFFFFF;
+            --text-muted: #A0A0A0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .cv-container {
+            width: 100%;
+            max-width: 900px;
+            background: var(--dark-surface);
+            display: flex;
+            flex-direction: row;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        /* Bagian Kiri (Sidebar) */
+        .sidebar {
+            flex: 1;
+            background: linear-gradient(180deg, #1a1a1a 0%, #000000 100%);
+            padding: 40px 30px;
+            border-right: 1px solid rgba(212, 175, 55, 0.3);
+            text-align: center;
+        }
+
+        .profile-frame {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 30px;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--gold-primary);
+            padding: 5px;
+            background: var(--dark-surface);
+        }
+
+        .profile-frame::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 1px solid var(--gold-primary);
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+
+        .sidebar h2 {
+            color: var(--gold-primary);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 25px 0 15px;
+            border-bottom: 1px solid var(--gold-primary);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .contact-list {
+            text-align: left;
+            list-style: none;
+            font-size: 0.85rem;
+        }
+
+        .contact-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-list span {
+            color: var(--gold-primary);
+        }
+
+        .skill-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .skill-badge {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-light);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+        }
+
+        /* Bagian Kanan (Konten Utama) */
+        .main-content {
+            flex: 2;
+            padding: 50px;
+            background: #1e1e1e;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--gold-primary);
+            line-height: 1.1;
+            margin-bottom: 5px;
+        }
+
+        header .subtitle {
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--gold-light);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--gold-primary), transparent);
+        }
+
+        .about-text {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            text-align: justify;
+        }
+
+        .timeline {
+            border-left: 2px solid var(--gold-primary);
+            padding-left: 20px;
+            margin-left: 10px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -27px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: var(--gold-primary);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--gold-primary);
+        }
+
+        .timeline-year {
+            font-weight: 600;
+            color: var(--gold-primary);
+            font-size: 0.9rem;
+        }
+
+        .timeline-school {
+            display: block;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .personal-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .personal-info div b {
+            color: var(--gold-light);
+            display: block;
+        }
+
+        /* Responsif untuk Mobile */
+        @media (max-width: 768px) {
+            .cv-container {
+                flex-direction: column;
+            }
+            .sidebar {
+                border-right: none;
+                border-bottom: 1px solid var(--gold-primary);
+            }
+            .main-content {
+                padding: 30px;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+            .personal-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cv-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile-frame">
+                <!-- Foto Placeholder: Ganti src dengan link foto asli kamu -->
+                <img src="keyla.jpeg" alt="Foto Keylla Meriyyam" class="profile-img">
+            </div>
+
+            <h2>Kontak</h2>
+            <ul class="contact-list">
+                <li><span>📞</span> 085797883975</li>
+                <li><span>📍</span> Bojongsoang, Bandung</li>
+                <li><span>📸</span> @kkylaaa0</li>
+            </ul>
+
+            <h2>Keahlian</h2>
+            <div class="skill-group">
+                <span class="skill-badge">Adaptabilitas</span>
+                <span class="skill-badge">Komunikatif</span>
+                <span class="skill-badge">Bertanggung Jawab</span>
+                <span class="skill-badge">Kerjasama Tim</span>
+            </div>
+
+            <h2>Bahasa</h2>
+            <div class="skill-group">
+                <span class="skill-badge">Bahasa Indonesia</span>
+            </div>
+
+            <h2>Hobi</h2>
+            <div class="skill-group">
+                <span class="skill-badge">🍳 Memasak</span>
+                <span class="skill-badge">🎤 Bernyanyi</span>
+            </div>
+        </aside>
+
+        <!-- Konten Utama -->
+        <main class="main-content">
+            <header>
+                <h1>Keylla Meriyyam<br>Nurul Haq</h1>
+                <div class="subtitle">Pelayanan Pelanggan | Fresh Graduate</div>
+            </header>
+
+            <section class="section">
+                <div class="section-title">Tentang Diri</div>
+                <p class="about-text">
+                    Fresh graduate IPS dari <b>SMA KARYA PEMBANGUNAN BALEENDAH</b> yang berorientasi pada pelayanan pelanggan. Senang mempelajari hal-hal baru dan cepat beradaptasi. Memiliki komunikasi yang baik dan keinginan kuat untuk meningkatkan kualitas pelayanan perusahaan agar tercapai kepuasan pelanggan yang maksimal.
+                </p>
+            </section>
+
+            <section class="section">
+                <div class="section-title">Pendidikan</div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-year">2023 - 2026</span>
+                        <span class="timeline-school">SMA Karya Pembangunan Baleendah</span>
+                        <p style="color: var(--text-muted); font-size: 0.85rem;">Jurusan Ilmu Pengetahuan Sosial (IPS)</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">2019 - 2023</span>
+                        <span class="timeline-school">Sekolah Menengah Pertama (SMP)</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">Lulus 2019</span>
+                        <span class="timeline-school">Sekolah Dasar (SD)</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="section-title">Detail Personal</div>
+                <div class="personal-info">
+                    <div>
+                        <b>Tanggal Lahir</b>
+                        19 Desember 2007
+                    </div>
+                    <div>
+                        <b>Domisili</b>
+                        Bojongsoang, Kab. Bandung
+                    </div>
+                    <div style="grid-column: 1 / -1;">
+                        <b>Alamat Lengkap</b>
+                        Kp. Cigebar RT 02/RW 03 Desa Bojongsari, Kec. Bojongsoang
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>
